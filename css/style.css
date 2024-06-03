@@ -1,0 +1,277 @@
+:root {
+    --background: #212529;
+    --background-secondary: #282c31;
+    --background-third: #6e767f;
+    --text: #ced4da;
+    --text-secondary: #9a9c9e;
+    --warning: #dc2f02;
+}
+
+:root.native-dark {
+    --background: #22272e;
+    --background-secondary: #272e35;
+    --background-third: #6d7887;
+    --text: #cbd0df;
+    --text-secondary: #4895ef;
+    --warning: #ef6c75;
+}
+
+@font-face {
+    font-family: "Bahnschrift";
+    src: url("../font/Bahnschrift.ttf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bahnschrift", sans-serif;
+    line-height: 1.6;
+    background-color: var(--background);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+h1, h2, h3, p {
+    margin: 0;
+}
+
+header {
+    background-color: var(--background-secondary);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1.logo {
+    font-size: 24px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header nav button {
+    background: var(--background);
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 200ms ease-in-out;
+}
+
+a:hover,
+a.active {
+    color: var(--text-secondary);
+}
+
+footer {
+    background-color: var(--background-secondary);
+    padding: 20px;
+    text-align: center;
+}
+
+.main {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+button {
+    font-family: "Bahnschrift", sans-serif;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    background-color: var(--background-secondary);
+    color: var(--background-third);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+input {
+    font-family: "Bahnschrift", sans-serif;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    background-color: var(--background-secondary);
+    color: var(--background-third);
+    border-radius: 6px;
+    border: none;
+    transition: all 200ms ease-in-out;
+    outline: 0;
+}
+
+button:hover {
+    color: var(--text);
+}
+
+button.selected {
+    color: var(--text);
+}
+
+div.Java, div.C, div.Python {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+div.Java button, div.C button, div.Python button {
+    margin: 5px 0;
+}
+
+table {
+    width: 80%;
+    margin: 15px auto;
+    border-collapse: collapse;
+}
+
+table thead tr {
+    background-color: var(--background-secondary);
+    text-align: left;
+    font-weight: bold;
+}
+
+table tbody tr {
+    transition: all 200ms ease-in-out;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid var(--background-third);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--background);
+}
+
+table tbody tr:hover {
+    background-color: var(--background-secondary);
+    cursor: pointer;
+}
+
+.practice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.practice .language {
+    margin-bottom: 20px;
+}
+
+.practice .language button {
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.practice .practice-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.practice .practice-block button.complete {
+    color: green;
+    background-color: rgba(0, 128, 0, 0.2);
+}
+
+.practice .practice-block button.complete:hover {
+    color: var(--text);
+}
+
+.practice .practice-test {
+    padding: 20px;
+    width: 50vw;
+    background-color: var(--background-secondary);
+    border-radius: 6px;
+    text-align: start;
+    display: none;
+}
+
+.practice .practice-test h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.practice .practice-test #code-container {
+    background-color: var(--background);
+    border-radius: 6px;
+    padding: 20px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.practice .practice-test #code-container pre {
+    margin: 0;
+    color: var(--text);
+}
+
+.practice .practice-test #code-container pre span {
+    opacity: 0.3;
+}
+
+.practice .practice-test #code-container pre .current {
+    font-weight: 900;
+    background-color: var(--background-secondary);
+    border-radius: 6px;
+    padding: 3px;
+    margin: 0 2px;
+    opacity: 1;
+    animation: cursor 1.5s linear infinite;
+}
+
+@keyframes cursor {
+    0% {
+        color: var(--text-secondary);
+    }
+    50% {
+        color: var(--text);
+        text-decoration: underline;
+    }
+    100% {
+        color: var(--text-secondary);
+    }
+}
+
+.practice .practice-test #code-container pre .correct {
+    color: var(--text);
+    opacity: 1;
+}
+
+.practice .practice-test #code-container pre .incorrect {
+    color: var(--warning) !important;
+    opacity: 1;
+}
+
+.practice .practice-test #stats,
+.practice .practice-test #results {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.practice .practice-test .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.practice .practice-test .buttons button {
+    background-color: var(--background);
+}
